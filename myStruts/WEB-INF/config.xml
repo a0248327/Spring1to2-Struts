@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <bean id="helloWorldService" class="com.gc.service.impl.HelloWorldServiceImpl">
+    </bean>
+<bean name="/helloWorld" class="com.gc.action.HelloWorldAction">
+     <property name="helloWorldService">
+        <ref bean="helloWorldService"/>
+     </property>
+</bean>
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd"> 
+<struts-config>     
+<form-beans>
+		<form-bean name="helloWorld" type="com.gc.action.HelloWorld"/>
+	</form-beans>
+	
+<action-mappings>
+		<action path="/helloWorld" type="org.springframework.web.struts.DelegatingActionProxy" name="helloWorld" validate="true" 
+            input="/WEB-INF/jsp/input.jsp">
+             <forward name="index" path="/WEB-INF/jsp/index.jsp"/>
+			 <forward name="show" path="/WEB-INF/jsp/show.jsp"/>
+		</action> 
+		<action 
+            path="/input" 
+            type="org.apache.struts.actions.ForwardAction" 
+            parameter="/WEB-INF/jsp/input.jsp"/>
+    </action-mappings>
+<plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+  		<set-property property="contextConfigLocation" value="/WEB-INF/config.xml" />
+</plug-in>
+<message-resources parameter="messages"/>
+</struts-config>
